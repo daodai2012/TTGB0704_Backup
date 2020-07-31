@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>唐甜与光彪</title>
+    <!-- <embed src="res/music/王心凌 - 大眠.mp3" hidden="true" autostart="true" loop="true"> -->
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+            /* background-image: url('https://raw.githubusercontent.com/we11cheng/we11cheng.github.io/master/bg.jpg'); */
+            background-image: url('res/image/bg.jpg');
+            font-size: 85%;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 220%;
+            font-weight: 400;
+        }
+
+        .content {
+            position: absolute;
+            width: 100%;
+            top: 40%;
+            transform: translate(0, -50%);
+            text-align: center;
+        }
+
+        .timer {
+            font-size: 180%;
+            line-height: 1.5;
+            margin: 1em 0;
+        }
+
+        .timer b {
+            color: rgb(253, 99, 125);
+        }
+
+        audio {
+            display: none;
+        }
+
+        .music {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            position: absolute;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="music">
+        <!-- <iframe frameborder="no" marginwidth="0" marginheight="0" width=282 height=86 src="https://music.163.com/outchain/player?type=2&id=34341360&auto=1&height=66"></iframe> -->
+        <!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="res/music/王心凌 - 大眠.mp3"></iframe> --> 
+        <!-- <iframe frameborder="no" border="0" hidden="true" marginwidth="0" marginheight="0" width=282 height=86 src="https://music.163.com/outchain/player?type=2&id=1430380259&auto=1&height=32"></iframe> -->
+        <!-- <iframe frameborder="no" border="0" hidden="true" marginwidth="0" marginheight="0" width=282 height=86 src="https://music.163.com/outchain/player?type=2&id=1419807657&auto=1&height=32"></iframe> -->
+        <iframe frameborder="no" border="0" hidden="true" marginwidth="0" marginheight="0" width=282 height=86 src="https://music.163.com/outchain/player?type=2&id=1465436428&auto=1&height=32"></iframe>
+    </div>
+    <div class="content">
+        <h2>唐甜，我们已经在一起了</h2>
+        <div class="timer">
+            <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
+        </div>
+    </div>
+    <script language="javascript">
+        function timer() {
+            window.setTimeout("show_date_time()", 1000);
+            var start = new Date("2020-07-04 12:00:00"); // 2015.7.2
+            var t = new Date().getTime() - start;
+            var h = ~~(t / 1000 / 60 / 60 % 24);
+            if (h < 10) {
+                h = "0" + h;
+            }
+            var m = ~~(t / 1000 / 60 % 60);
+            if (m < 10) {
+                m = "0" + m;
+            }
+            var s = ~~(t / 1000 % 60);
+            if (s < 10) {
+                s = "0" + s;
+            }
+            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+            document.getElementById('h').innerHTML = h;
+            document.getElementById('m').innerHTML = m;
+            document.getElementById('s').innerHTML = s;
+        }
+        timer();
+    </script>
+    <!-->
+    <script language="javascript">
+	    function show_date_time() {
+	        window.setTimeout("show_date_time()", 1000);
+	        BirthDay = new Date("7/4/2020 12:00:00");//这个日期是可以修改的
+	        today = new Date();
+	        timeold = (today.getTime() - BirthDay.getTime());
+	        sectimeold = timeold / 1000
+	        secondsold = Math.floor(sectimeold);
+	        msPerDay = 24 * 60 * 60 * 1000
+	        e_daysold = timeold / msPerDay
+	        daysold = Math.floor(e_daysold);
+	        e_hrsold = (e_daysold - daysold) * 24;
+	        hrsold = Math.floor(e_hrsold);
+	        e_minsold = (e_hrsold - hrsold) * 60;
+	        minsold = Math.floor((e_hrsold - hrsold) * 60);
+	        seconds = Math.floor((e_minsold - minsold) * 60);
+          document.getElementById('d').innerHTML = daysold;
+          document.getElementById('h').innerHTML = hrsold;
+          document.getElementById('m').innerHTML = minsold;
+          document.getElementById('s').innerHTML = seconds;
+	    }
+	    show_date_time();
+	</script>
+  <!-->
+    <!--音乐可改-->
+    <!-- <audio autoplay="auto" controls="controls" loop="loop" preload="auto"
+        src="https://music.163.com/outchain/player?type=2&id=1430380259">
+    </audio> -->
+    <!-- <bgsound src="D:\vueworkspace\WCStaticHTML\res\music\王心凌 - 大眠.mp3" autostart=true loop=infinite>  -->
+</body>
+
+</html>
